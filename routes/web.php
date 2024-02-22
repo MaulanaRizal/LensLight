@@ -14,5 +14,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+})->name('home');
+
+
+Route::prefix('/cameras')->group(function(){
+    Route::get('/', function () {
+        return view('cameras');
+    })->name('cameras');
+
+    Route::get('/detail/{id}',function(){
+        return view('camera-detail');
+    })->name('cameraDetail');
 });
+
+Route::prefix('/studios')->group(function(){
+    Route::get('/',function(){
+        return view('studios');
+    })->name('studios');
+
+    Route::get('/detail/{id}',function(){
+        return view('studio-detail');
+    })->name('studioDetail');
+});
+    
