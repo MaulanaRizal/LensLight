@@ -21,8 +21,8 @@
         <link rel="stylesheet" href="{{asset('pabna/css/meanmenu.min.css')}}">
 		<!-- owl.carousel css -->
         <link rel="stylesheet" href="{{asset('pabna/css/owl.carousel.css')}}">
-		<!-- nivo-slider css -->
-        <link rel="stylesheet" href="{{asset('pabna/lib/css/nivo-slider.css')}}">
+		 <!-- nivo-slider css -->
+         <link rel="stylesheet" href="{{asset('pabna/lib/css/nivo-slider.css')}}">
 		<!-- font-awesome css -->
         <link rel="stylesheet" href="{{asset('pabna/css/font-awesome.min.css')}}">
 		<!-- style css -->
@@ -601,13 +601,13 @@
         <script src="{{asset('pabna/js/jquery.meanmenu.js')}}"></script>
 		<!-- jquery-ui js -->
         <script src="{{asset('pabna/js/jquery-ui.min.js')}}"></script>
-		<!-- elevateZoom js -->
-        <script src="{{asset('pabna/js/jquery.elevateZoom-3.0.8.min.js')}}"></script>	
+		 <!-- elevateZoom js -->
+         <script src="{{asset('pabna/js/jquery.elevateZoom-3.0.8.min.js')}}"></script>	
 		<!-- wow js -->
         <script src="{{asset('pabna/js/wow.min.js')}}"></script>
-		<script>
+		 <script>
 			$(".zoom").elevateZoom();
-		</script>
+		 </script>
 		<!-- plugins js -->
         <script src="{{asset('pabna/js/plugins.js')}}"></script>
 		<!-- main js -->

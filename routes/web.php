@@ -14,27 +14,41 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('home.index');
 })->name('home');
 
 
 Route::prefix('/cameras')->group(function(){
     Route::get('/', function () {
-        return view('cameras');
+        return view('home.cameras');
     })->name('cameras');
 
     Route::get('/detail/{id}',function(){
-        return view('camera-detail');
-    })->name('cameraDetail');
+        return view('home.camera-detail');
+    })->name('camera detail');
 });
 
 Route::prefix('/studios')->group(function(){
     Route::get('/',function(){
-        return view('studios');
+        return view('home.studios');
     })->name('studios');
 
     Route::get('/detail/{id}',function(){
-        return view('studio-detail');
-    })->name('studioDetail');
+        return view('home.studio-detail');
+    })->name('studio detail');
 });
+
+Route::prefix('/accessories')->group(function(){
+    Route::get('/',function(){
+        return view('home.accessories');
+    })->name('accessories');
+
+    Route::get('/detail/{id}',function(){
+        return view('home.accessories-detail');
+    })->name('accessories detail');
+});
+
+Route::get('/about',function(){
+    return view('home.about');
+})->name('about us');
     
