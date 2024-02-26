@@ -25,9 +25,9 @@
                 <h4 class="card-title">About Vertical Navbar</h4>
             </div>
             <div class="card-body">
-                <p>Vertical Navbar is a layout option that you can use with Mazer. </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean vitae malesuada arcu, nec rutrum orci. Morbi arcu arcu, commodo sed quam ut, venenatis dictum augue. Quisque at diam sed ante iaculis dapibus non id ipsum. Quisque tincidunt arcu posuere pharetra commodo. Nunc faucibus ipsum aliquam ipsum facilisis, quis pulvinar tortor suscipit. Proin aliquet elementum tellus ac ornare. Vestibulum laoreet id metus et venenatis.</p>
                 
-                <p>In case you want the navbar to be sticky on top while scrolling, add <code>.navbar-fixed</code> class alongside with <code>.layout-navbar</code> class.</p>
             </div>
         </div>
     </section>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\loginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ======== Home Section =======
 Route::get('/', function () {
     return view('home.index');
 })->name('home');
-
 
 Route::prefix('/cameras')->group(function(){
     Route::get('/', function () {
@@ -52,15 +53,34 @@ Route::prefix('/accessories')->group(function(){
 Route::get('/about',function(){
     return view('home.about');
 })->name('about us');
-    
-Route::get('/login',function(){
-    return view('auth.login');
+// ======== Home Section =======
+
+// ======== Login Section =======
+
+Route::prefix('/login')->group(function(){
+    Route::get('/',[loginController::class,'index'])->name('login');
+    Route::post('/', [loginController::class, 'authenticate'])->name('login');
+
+    Route::post('/logout',[loginController::class, 'invalidate'])->name('logout');
 });
-Route::prefix('/auth')->group(function(){
+
+// ======== Login Section =======
+
+
+// ======== Admin Section =======
+
+Route::prefix('/auth')->middleware(['auth'])->group(function(){
     Route::get('/',function(){
         return view('auth.dashboard');
     })->name('dashboard');
+
+
+    Route::get('/blank',function(){
+        return view('auth.blank');
+    })->name('blank');
+
 });
 
-// Auth::routes();
+// Auth::routes();  
 
+// ======== Admin Section =======
