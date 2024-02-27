@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -74,6 +76,12 @@ Route::prefix('/auth')->middleware(['auth'])->group(function(){
         return view('auth.dashboard');
     })->name('dashboard');
 
+    Route::prefix('/settings')->group(function(){
+        Route::prefix('/users')->group(function(){
+            Route::get('/',[UsersController::class,'index'])->name('users');
+            Route::get('/getDataUser',[UsersController::class,'getuserData'])->name('getuserdata');
+        });
+    });
 
     Route::get('/blank',function(){
         return view('auth.blank');

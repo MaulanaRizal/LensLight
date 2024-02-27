@@ -42,17 +42,50 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
                 
-                <li
-                    class="sidebar-item  ">
-                    <a href="index.html" class='sidebar-link'>
+                <li class="sidebar-item {{ Request::routeIs('dashboard') ? 'active' : '' }}"">
+                    <a href="{{route('dashboard')}}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
-                    
-
                 </li>
                 
-                
+                <li class="sidebar-item  has-sub {{ Request::routeIs('users') ? 'active' : '' }}"">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-gear"></i>
+                        <span>Setting</span>
+                    </a>
+                    
+                    <ul class="submenu  {{ Request::routeIs('users') ? 'submenu-open' : 'submenu-closed' }} submenu-closed" style="--submenu-height: 129px;">
+                        
+                        <li class="submenu-item {{ Request::routeIs('users') ? 'active' : '' }}">
+                            <a href="{{route('users')}}" class="submenu-link">Users</a>
+                            
+                        </li>
+                        
+                        <li class="submenu-item  ">
+                            <a href="error-404.html" class="submenu-link">Roles</a>
+                            
+                        </li>
+                        
+                        <li class="submenu-item  ">
+                            <a href="error-500.html" class="submenu-link">Access</a>
+                            
+                        </li>
+
+                        <li class="submenu-item  ">
+                            <a href="error-500.html" class="submenu-link">Tags</a>
+                            
+                        </li>
+
+                        <li class="submenu-item  ">
+                            <a href="error-500.html" class="submenu-link">Unit</a>
+                            
+                        </li>
+                        
+                    </ul>
+                    
+    
+                </li>
             </ul>
         </div>
     </div>

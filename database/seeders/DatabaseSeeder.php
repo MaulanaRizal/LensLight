@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Administrator',
             'email' => 'administrator@lens.com',
+            'role' => 'ADMIN',
         ]);
     }
 }
