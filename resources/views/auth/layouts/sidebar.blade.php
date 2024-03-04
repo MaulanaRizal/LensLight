@@ -42,23 +42,23 @@
             <ul class="menu">
                 <li class="sidebar-title">Menu</li>
                 
-                <li class="sidebar-item {{ Request::routeIs('dashboard') ? 'active' : '' }}"">
+                <li class="sidebar-item" id='dashboardMenu'>
                     <a href="{{route('dashboard')}}" class='sidebar-link'>
                         <i class="bi bi-grid-fill"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 
-                <li class="sidebar-item  has-sub {{ Request::routeIs('users') ? 'active' : '' }}"">
+                <li class="sidebar-item  has-sub" id="settingMenu">
                     <a href="#" class="sidebar-link">
                         <i class="bi bi-gear"></i>
                         <span>Setting</span>
                     </a>
                     
-                    <ul class="submenu  {{ Request::routeIs('users') ? 'submenu-open' : 'submenu-closed' }} submenu-closed" style="--submenu-height: 129px;">
+                    <ul class="submenu submenu-closed"  style="--submenu-height: 129px;">
                         
-                        <li class="submenu-item {{ Request::routeIs('users') ? 'active' : '' }}">
-                            <a href="{{route('users')}}" class="submenu-link">Users</a>
+                        <li class="submenu-item " id="usersMenu">
+                            <a href="{{route('users')}}"  class="submenu-link">Users</a>
                             
                         </li>
                         

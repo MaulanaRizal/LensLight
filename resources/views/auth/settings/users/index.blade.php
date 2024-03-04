@@ -12,11 +12,37 @@
         margin-top: -10px;
     }
 
+    .alert-message{
+        z-index: 999;
+        position: absolute;
+        right: 35px;
+    }
+
 </style>
     
 @endpush
 
+@section('title', $title)
+
+
 @section('content')
+    @if (session('error'))
+
+    <div class="alert-message">
+        <div class="alert alert-danger alert-dismissible show fade">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @foreach ($errors->all() as $error)
+        <div class="alert alert-danger alert-dismissible show fade">
+            {{ $error }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endforeach
+    </div>
+
+    @endif
+
     <div class="page-heading">
     <div class="page-title">
         <div class="row">
@@ -27,9 +53,7 @@
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item"><a href="index.html">Setting</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Users</li>
+                        <?= $BreadCrumbs ?>
                     </ol>
                 </nav>
             </div>
@@ -42,12 +66,11 @@
                 <h4 class="card-title">Users Table</h4>
             </div>
             <div class="card-body">
-                <a href="#" class="btn btn-primary md-2 float-end btn-create" >Create User</a>
+                <a href="{{ route('create user') }}" class="btn btn-primary md-2 float-end btn-create" >Create User</a>
                 <p>
                     This user management page allows you to view, edit, and delete your user information.
                 </p>
 
-                
                 <table class="table table-bordered" id="dataTable">
                     <thead>
                       <tr>
@@ -73,6 +96,11 @@
 <script>
 
     $(document).ready(function() {
+
+        $('#settingMenu').addClass('active');
+        $('#settingMenu .submenu').removeClass('submenu-closed').addClass('submenu-open');
+        $('#settingMenu #usersMenu').addClass('active')
+
         $('#dataTable').DataTable({
             processing: true,
             serverSide: true,

@@ -33,3 +33,10 @@
     </section>
 
 @endsection
+
+@push('scripts')
+<script>
+    $('#dashboardMenu').addClass('active');
+</script>
+    
+@endpush
