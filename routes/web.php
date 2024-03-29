@@ -82,8 +82,8 @@ Route::prefix('/auth')->middleware(['auth'])->group(function(){
             Route::get('/create',[UsersController::class,'create'])->name('create user');
             Route::post('/insert',[UsersController::class,'insert'])->name('insert user');
             Route::get('/edit/{id}',[UsersController::class,'edit'])->name('edit user');
-            Route::get('/update/{id}',[UsersController::class,'update'])->name('update user');
-
+            Route::post('/update/{id}',[UsersController::class,'update'])->name('update user');
+            
             Route::get('/getDataUser',[UsersController::class,'getuserData'])->name('getuserdata');
         });
     })->name('users group');

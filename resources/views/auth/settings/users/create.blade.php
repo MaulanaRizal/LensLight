@@ -110,7 +110,10 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="position-relative">
-                                                <input id="userMobile" name="phone_number" type="text" class="form-control" placeholder="Mobile">
+                                                <input id="userMobile" 
+                                                    name="phone_number" type="text" 
+                                                    class="form-control" 
+                                                    placeholder="Mobile">
                                             </div>
                                         </div>
                                     </div>
@@ -121,8 +124,10 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="position-relative">
-                                                <input name="email" type="email" class="form-control" placeholder="Email"
-                                                    id="email-horizontal-icon" autocomplete="off"
+                                                <input name="email" type="email" class="form-control"
+                                                    placeholder="Email"
+                                                    id="email-horizontal-icon" 
+                                                    autocomplete="off"
                                                     required>
                                             </div>
                                         </div>

@@ -1,6 +1,28 @@
 @extends('auth.layouts.app')
 
 @section('content')
+
+@push('styles')
+<style>
+    #dataTable th:nth-child(4), #dataTable td:nth-child(4) {
+        min-width: 100px !important; /* Adjust the value based on your content */
+        width: 100px !important;
+    }
+
+    .btn-create{
+        float: right;
+        margin-top: -10px;
+    }
+
+    .alert-message{
+        z-index: 999;
+        position: absolute;
+        right: 35px;
+    }
+</style>
+    
+@endpush
+
 @if (session('error'))
 
 <div class="alert-message">
@@ -47,7 +69,8 @@
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal" >
+                        <form class="form form-horizontal" action="{{route('update user',['id'=>$user->id])}}" method="POST">
+                            @csrf
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">
@@ -59,6 +82,7 @@
                                                 <input type="text" class="form-control" placeholder="Name"
                                                     id="first-name-horizontal-icon"
                                                     value="{{ $user->name }}"
+                                                    name="name"
                                                     required>
                                             </div>
                                         </div>
@@ -69,11 +93,11 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <select class="choices form-select" id="selectRole">
-                                                <option value="USER">USER</option>
-                                                <option value="ADMIN">ADMIN</option>
-                                                <option value="LOGISTIC">LOGISTIC</option>
-                                                <option value="MARKETING">MARKETING</option>
+                                            <select name="role" class="choices form-select" id="selectRole">
+                                                <option {{ $user->role=="USER"?"selected":"" }}  value="USER">USER</option>
+                                                <option {{ $user->role=="ADMIN"?"selected":"" }} value="ADMIN">ADMIN</option>
+                                                <option {{ $user->role=="LOGISTIC"?"selected":"" }} value="LOGISTIC">LOGISTIC</option>
+                                                <option {{ $user->role=="MARKETING"?"selected":"" }} value="MARKETING">MARKETING</option>
                                             </select>
                                         </div>
                                     </div>
@@ -84,7 +108,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="position-relative">
-                                                <input type="number" class="form-control" placeholder="Mobile" 
+                                                <input type="text" class="form-control" placeholder="Mobile"
+                                                name="phone_number" 
                                                 id="contact-info-horizontal-icon"
                                                 value="{{ $user->phone_number }}">
                                             </div>
@@ -97,7 +122,9 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <div class="position-relative">
-                                                <input type="email" class="form-control" placeholder="Email"
+                                                <input type="email" class="form-control" 
+                                                    placeholder="Email"
+                                                    name="email"
                                                     id="email-horizontal-icon" 
                                                     autocomplete="off"
                                                     value="{{ $user->email }}"
@@ -150,6 +177,8 @@
 @push('scripts')
 <script>
     $(document).ready(function(){
+
+        $('#selectRole')
 
         $('#settingMenu').addClass('active');
         $('#settingMenu .submenu').removeClass('submenu-closed').addClass('submenu-open');

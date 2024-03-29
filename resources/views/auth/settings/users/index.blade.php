@@ -26,6 +26,19 @@
 
 
 @section('content')
+
+    @if(session('success'))
+    <div class="alert-message">
+    
+        <div class="alert alert-success alert-dismissible show fade">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+
+    
+    @endif
+
     @if (session('error'))
 
     <div class="alert-message">
